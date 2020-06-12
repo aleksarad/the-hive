@@ -1,0 +1,11 @@
+<h1><%= @user.name %>'s Profile</h1>
+<%= link_to 'Feed', posts_path %>
+
+<p><%= @user.user_name %></p>
+
+<% @user.posts.each do |post| %>
+    <p><%= post.content %></p>
+    <p><%=post.created_at.strftime("%A, %B %d, %Y, %l:%M %p, %:z") %></p>
+    <p><%= link_to 'Edit Post', edit_post_path(post) %></p>
+    <hr>
+<% end %>

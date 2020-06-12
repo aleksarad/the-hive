@@ -1,0 +1,9 @@
+<h1>Edit Post</h1>
+
+<%= form_for @post do |f| %>
+    <%= f.label 'Write your text here' %><br>
+    <%= f.text_area :content %><br>
+    <%= f.label 'User' %>
+    <%= @post.user.user_name %> <br>
+    <%= f.submit %>
+<% end %>
