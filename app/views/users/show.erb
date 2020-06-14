@@ -6,7 +6,7 @@
 <p><%= @user.user_name %></p>
 
 
-<% @user.posts.each do |post| %>
+<% @user.posts.feed_order.each do |post| %>
     <p><%= post.content %></p>
     <p><%=post.created_at.strftime("%A, %B %d, %Y, %l:%M %p, %:z") %></p>
     <p><%= link_to 'Edit Post', edit_post_path(post) %></p>

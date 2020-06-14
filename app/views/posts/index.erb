@@ -1,5 +1,8 @@
 <% @posts.feed_order.each do |post|%>
+<div class="post-container">
 <p><%=post.content%></p>
-<p><%=post.created_at.strftime("%A, %B %d, %Y") %></p>
-<p><%= link_to post.user.user_name, user_path(post.user_id) %></p>
+by <%= link_to post.user.user_name, user_path(post.user_id), class: "user-link" %>
+<%=post.created_at.strftime("%A, %B %d, %Y") %>
+<hr>
+</div>
 <%end%>
