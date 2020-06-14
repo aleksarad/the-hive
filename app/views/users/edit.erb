@@ -1,0 +1,13 @@
+<h1> Edit User</h1>
+
+<%= form_for @user do |f|%>
+    <%= f.label 'Name'%>
+    <%= f.text_field :name %> <br>
+    <%= f.label 'Username'%>
+    <%= f.text_field :user_name %> <br>
+    <%= f.label 'Password'%>
+    <%= f.text_field :password %> <br>
+    <%= f.label 'Location'%>
+    <%= f.text_field :location %><br>
+    <%= f.submit 'Update Account' %>
+<% end %>
