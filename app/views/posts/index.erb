@@ -1,5 +1,13 @@
 <h1>Feed</h1>
 <hr>
+<%= form_tag ({controller: 'posts',
+    action: 'create',
+    method: 'post'}) do %>
+   <%= label_tag "What's the buzz?"%> <br>
+   <%= text_area_tag :content %> <br>
+   <%= submit_tag "Submit"%>
+<% end %>
+<hr>
 <% @posts.feed_order.each do |post|%>
     <div class="post-container">
     <p><%=post.content%></p>
