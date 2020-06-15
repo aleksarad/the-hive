@@ -1,0 +1,8 @@
+<h1><%= current_user.name %>'s Likes</h1>
+
+<% current_user.likes.each do |like| %>
+    <%= like.post.content %><br>
+    <%= like.post.user.user_name %>
+    <hr>
+<% end %>
+<%= link_to 'Back to Profile', user_path(current_user) %>

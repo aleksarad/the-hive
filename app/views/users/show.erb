@@ -2,7 +2,7 @@
 <%= link_to 'Feed', posts_path %> <br>
 <%= link_to 'Edit User', edit_user_path%> <br>
 <%= link_to 'Create New Post', new_post_path %><br>
-<%= link_to 'View Likes', user_likes_path(@user) %><br>
+<%= link_to 'View Likes', user_likes_path(current_user) %><br>
 <%= button_to "Logout", '/logout', method: :post %>
 
 <p><%= @user.user_name %></p>
@@ -13,12 +13,22 @@
 <% @user.posts.feed_order.each do |post| %>
     <p><%= post.content %></p>
     <p><%=post.created_at.strftime("%A, %B %d, %Y, %l:%M %p, %:z") %></p>
-    <%= form_tag ({controller: 'likes',
-        action: 'add_like',
-        method: 'post'}) do %>
-        <input type=hidden name=post_id value="<%= post.id %>">
-        <input type=hidden name=user_id value="<%= post.user_id %>">
-        <input type=submit value='Like'>
+    <% if current_user.liked?(post) %>
+        <%= form_tag ({controller: 'likes',
+            action: 'remove_like',
+            method: 'post'}) do %>
+            <input type=hidden name=post_id value="<%= post.id %>">
+            <input type=hidden name=user_id value="<%= post.user_id %>">
+            <input type=submit value='Unlike'>
+        <% end %>
+    <% else %>
+        <%= form_tag ({controller: 'likes',
+            action: 'add_like',
+            method: 'post'}) do %>
+            <input type=hidden name=post_id value="<%= post.id %>">
+            <input type=hidden name=user_id value="<%= post.user_id %>">
+            <input type=submit value='Like'>
+        <% end %>
     <% end %>
     Likes: <%= post.likes.count%>
     <br>

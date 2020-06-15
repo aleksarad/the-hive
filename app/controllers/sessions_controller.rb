@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
         @user = User.find_by(user_name: params[:user_name])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to '/welcome'
-            p @user.errors
+            redirect_to '/posts'
+            # p @user.errors
         else
             redirect_to '/login'
         end

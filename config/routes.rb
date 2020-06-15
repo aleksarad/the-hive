@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/login'
-  get 'sessions/welcome'
-    get '/likes' => 'likes#index'
-    post '/likes' => 'likes#add_like'
-    delete '/likes' => 'likes#remove_like'
-    resources :posts
     resources :users do
-      resources :likes, only: [:index]
+      get 'likes', to: 'users#likes'
     end
+    resources :posts
+    get 'sessions/new'
+    get 'sessions/create'
+    get 'sessions/login'
+    get 'sessions/welcome'
+    get '/likes' => 'likes#index'
+    post '/likes' => 'likes#toggle_like'
+    # delete '/likes' => 'likes#remove_like'
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     get 'welcome', to: 'sessions#welcome'
