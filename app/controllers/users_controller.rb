@@ -10,19 +10,24 @@ class UsersController < ApplicationController
     end 
 
     def create 
-        @user = User.create(user_params(:user_name, :name, :password, :location))
+        @user = User.create(user_params(:user_name, :name, :password, :location, :bio))
         session[:user_id] = @user.id
         redirect_to '/welcome'
     end
 
     def edit
         @user = User.find(params[:id])
+        if current_user.id == @user.id 
+            @user 
+        else  
+            redirect_to user_path(@user)
+        end
     end 
 
     def update
-        @user = User.find(params[:id])
-        @user.update(user_params(:user_name, :name, :password, :location))
-        redirect_to user_path(@user)
+        @user = current_user
+        @user.update(user_params(:user_name, :name, :password, :location, :bio))
+        redirect_to user_path(current_user)
     end
 
     #should we let users delete their accounts?

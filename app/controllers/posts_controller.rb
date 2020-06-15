@@ -5,33 +5,34 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new
-        @users = User.all
     end
 
     def create
-        # @user = current_user
         @post = Post.create(content: params[:post][:content], user_id: current_user.id)
-        # byebug
-        # current_user.id
         redirect_to posts_path
     end
 
     def edit
         @post = Post.find(params[:id])
+        if @post.user_id == current_user.id 
+            @post
+        else  
+            redirect_to posts_path
+        end
     end
 
     def update
         @post = Post.find(params[:id])
-        @post.update(post_params(:content, :user_id))
-        @user = User.find(@post.user_id)
-        redirect_to user_path(@user)
+        @post.update(post_params(:content, current_user.id))
+        redirect_to user_path(current_user)
     end
 
     def destroy
         @post = Post.find(params[:id])
-        @user = User.find(@post.user_id)
-        @post.destroy 
-        redirect_to user_path(@user)
+       if @post.user_id == current_user.id 
+            @post.destroy 
+       end
+        redirect_to user_path(current_user)
     end
 
     private

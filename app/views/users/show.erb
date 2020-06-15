@@ -1,7 +1,10 @@
 <h1><%= @user.name %>'s Profile</h1>
 <%= link_to 'Feed', posts_path %> <br>
-<%= link_to 'Edit User', edit_user_path%> <br>
-<%= link_to 'Create New Post', new_post_path %><br>
+
+<% if @user.id == current_user.id %>
+    <%= link_to 'Edit User', edit_user_path %> <br>
+    <%= link_to 'Create New Post', new_post_path %><br>
+<% end %>
 <%= link_to 'View Likes', user_likes_path(@user) %><br>
 <%= button_to "Logout", '/logout', method: :post %>
 
@@ -9,10 +12,10 @@
 
 <br>
 
-
 <% @user.posts.feed_order.each do |post| %>
     <p><%= post.content %></p>
-    <p><%=post.created_at.strftime("%A, %B %d, %Y, %l:%M %p, %:z") %></p>
+    <p><%=post.created_at.strftime("%A, %B %d, %Y, %l:%M %p") %></p>
+
     <%= form_tag ({controller: 'likes',
         action: 'add_like',
         method: 'post'}) do %>
@@ -20,9 +23,13 @@
         <input type=hidden name=user_id value="<%= post.user_id %>">
         <input type=submit value='Like'>
     <% end %>
+
     Likes: <%= post.likes.count%>
     <br>
-    <p><%= link_to 'Edit Post', edit_post_path(post) %></p>
-    <p> <%= button_to 'Delete post', post_path(post), method: :delete %></p>
 
+    <% if @user.id == current_user.id %>
+        <p><%= link_to 'Edit Post', edit_post_path(post) %></p>
+        <p> <%= button_to 'Delete post', post_path(post), method: :delete %></p>
+    <% end %>
+<hr>
 <% end %>
