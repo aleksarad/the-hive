@@ -1,10 +1,11 @@
+<h1>Feed</h1>
+<hr>
 <% @posts.feed_order.each do |post|%>
     <p><%=post.content%></p>
     <p><%=post.created_at.strftime("%A, %B %d, %Y") %></p>
     <p><%= link_to post.user.user_name, user_path(post.user_id) %></p>
 
-    <!-- adding button for like on each post-->
-    <p>Total Likes: <%= post.likes.count %></p> <!-- shows like total -->
-    <%= link_to 'Like', new_like_path %> <!-- stays on posts feed page -->
+    <p>Total Likes: <%= post.likes.count %></p>
+    <%= link_to 'Like', user_post_likes_path(post), method: :post %>
     <hr>
 <%end%>
