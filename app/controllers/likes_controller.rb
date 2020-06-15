@@ -1,24 +1,11 @@
 class LikesController < ApplicationController
-    before_action :find_post
 
-    # def new
-    #     @like = Like.new
-    #     @posts = Post.all
-    #     @users = User.all
-    # end
+    def index
+        redirect_to posts_path
+    end
 
-    def create
-        # @like = Like.create(like_params)
-        # @post = Post.find_by(id: @like.post_id)
-        # @post.add_like
-
-        # if !already_liked?
-        #     @posts.likes.create(user_id: @post.user_id)
-        # end
-        # redirect_to back
-        post = Post.find(params[:post_id])
-        # current_user.like(post)
-        # byebug
+    def add_like
+        @like = Like.create(user_id: params[:user_id], post_id: params[:post_id])
         redirect_to posts_path
     end
 
@@ -31,10 +18,6 @@ class LikesController < ApplicationController
 
 
     private
-
-    def find_post
-        @post = Post.find(params[:post_id])
-    end
 
     def already_liked?
         Like.where(user_id: params[:user_id], post_id: params[:post_id]).exists?

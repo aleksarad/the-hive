@@ -1,10 +1,6 @@
 class PostsController < ApplicationController
     def index
         @posts = Post.all
-        # added access to likes
-        # @add_like = @posts.each do |post|
-        #     post.add_like
-        # end
     end
 
     def new

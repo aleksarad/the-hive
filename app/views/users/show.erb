@@ -9,10 +9,16 @@
 <% @user.posts.each do |post| %>
     <p><%= post.content %></p>
     <p><%=post.created_at.strftime("%A, %B %d, %Y, %l:%M %p, %:z") %></p>
+    <%= form_tag ({controller: 'likes',
+        action: 'add_like',
+        method: 'post'}) do %>
+        <input type=hidden name=post_id value="<%= post.id %>">
+        <input type=hidden name=user_id value="<%= post.user_id %>">
+        <input type=submit value='Like'>
+    <% end %>
+    Likes: <%= post.likes.count%>
+    <br>
     <p><%= link_to 'Edit Post', edit_post_path(post) %></p>
     <p> <%= button_to 'Delete post', post_path(post), method: :delete %></p>
-        
-    <p>Total Likes: <%= post.likes.count %></p>
-    <%= link_to 'Like', user_post_likes_path(post.id, post.user_id), method: :post %>
-    <hr>
+
 <% end %>
