@@ -1,0 +1,7 @@
+<h1><%= @user.name %>'s Likes</h1>
+
+<% @user.likes.each do |like| %>
+    <%= like.post.content %><br>
+    <%= like.user.user_name %>
+    <hr>
+<% end %>

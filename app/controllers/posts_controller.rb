@@ -9,7 +9,10 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.create(post_params(:content, :user_id))
+        # @user = current_user
+        @post = Post.create(content: params[:post][:content], user_id: current_user.id)
+        # byebug
+        # current_user.id
         redirect_to posts_path
     end
 

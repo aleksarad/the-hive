@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    skip_before_action :authorized, only: [:new, :create]
+
     def show
         @user = User.find(params[:id])
     end
@@ -9,7 +11,8 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.create(user_params(:user_name, :name, :password, :location))
-        redirect_to user_path(@user)
+        session[:user_id] = @user.id
+        redirect_to '/welcome'
     end
 
     def edit
