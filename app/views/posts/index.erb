@@ -2,7 +2,17 @@
 <div class="post-container">
 <p><%=post.content%></p>
 by <%= link_to post.user.user_name, user_path(post.user_id), class: "user-link" %>
-<%=post.created_at.strftime("%A, %B %d, %Y") %>
+<%= post.created_at.strftime("%A, %B %d, %Y") %>
+
+<%= form_tag ({controller: 'likes',
+    action: 'add_like',
+    method: 'post'}) do %>
+  <input type=hidden name=post_id value="<%= post.id %>">
+  <input type=hidden name=user_id value="<%= post.user_id %>">
+  <input type=submit value='Like'>
+<% end %>
+
+Likes: <%= post.likes.count%>
 <hr>
 </div>
 <%end%>
