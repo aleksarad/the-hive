@@ -2,7 +2,7 @@
 
 <% @user.likes.each do |like| %>
     <%= like.post.content %><br>
-    <%= like.post.user.user_name %>
+    <%= link_to like.post.user.user_name, user_path(like.post.user) %>
     <hr>
 <% end %>
 <%= link_to 'Back to Profile', user_path(@user) %>
