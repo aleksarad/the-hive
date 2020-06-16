@@ -1,11 +1,5 @@
 class LikesController < ApplicationController
 
-    def likes
-        byebug
-        @user = User.find(params[:id])
-        redirect_to posts_path
-    end
-
     def toggle_like
         @post = Post.find(params[:post_id])
         if current_user.liked?(@post)
@@ -17,12 +11,6 @@ class LikesController < ApplicationController
             redirect_back(fallback_location: posts_path)
         end
     end
-
-    # def remove_like
-    #     @like = current_user.likes.find(params[:post_id])
-    #     @like.destroy
-    #     redirect_back(fallback_location: posts_path)
-    # end
 
     private
 
