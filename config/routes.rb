@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     get 'sessions/welcome'
     get '/likes' => 'likes#index'
     post '/likes' => 'likes#toggle_like'
-    # delete '/likes' => 'likes#remove_like'
     get 'login', to: 'sessions#new'
     post 'login', to: 'sessions#create'
     get 'welcome', to: 'sessions#welcome'

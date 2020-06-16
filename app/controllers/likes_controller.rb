@@ -1,6 +1,8 @@
 class LikesController < ApplicationController
 
-    def index
+    def likes
+        byebug
+        @user = User.find(params[:id])
         redirect_to posts_path
     end
 
@@ -21,10 +23,6 @@ class LikesController < ApplicationController
     #     @like.destroy
     #     redirect_back(fallback_location: posts_path)
     # end
-
-    def show
-        @likes = Like.find_by(user_id: current_user.id)
-    end
 
     private
 

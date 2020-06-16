@@ -25,6 +25,10 @@ class UsersController < ApplicationController
         redirect_to user_path(@user)
     end
 
+    def likes
+        @user = User.find(params[:user_id])
+    end
+
     #should we let users delete their accounts?
     
     private

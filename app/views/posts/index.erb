@@ -12,11 +12,11 @@
         method: 'post'}) do %>
         <input type=hidden name=post_id value="<%= post.id %>">
         <input type=hidden name=user_id value="<%= post.user_id %>">
-        <input type=submit value='Like'>
+        <input type=submit value='🐝'>
     <% end %>
 
 
-    Likes: <%= post.likes.count%>
+    Buzz: <%= post.likes.count%>
     <hr>
     </div>
 <%end%>
