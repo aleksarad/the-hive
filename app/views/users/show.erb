@@ -10,14 +10,16 @@
 <% if @user == current_user %>
 <p><%= @user.user_name %></p>
 <hr>
-<%= form_tag ({controller: 'posts',
-    action: 'create',
-    method: 'post'}) do %>
-   <%= label_tag "What's the buzz?"%> <br>
-   <%= text_area_tag :content %> <br>
-   <%= submit_tag "Submit"%>
-<% end %>
-<hr>
+
+    <%= form_tag ({controller: 'posts',
+        action: 'create',
+        method: 'post'}), :id => "create-buzz" do %>
+    <p id="buzz-prompt">Create some buzz</p>
+    <%= text_area_tag :content %> 
+    <%= submit_tag "Buzz it up", :id => "submit"%>
+    <% end %>
+    <hr>
+
 <%end %>
 <% @user.posts.feed_order.each do |post| %>
     <p><%= post.content %></p>

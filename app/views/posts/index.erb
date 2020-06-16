@@ -1,30 +1,40 @@
-<h1>Feed</h1>
-<hr>
-<%= form_tag ({controller: 'posts',
-    action: 'create',
-    method: 'post'}) do %>
-   <%= label_tag "What's the buzz?"%> <br>
-   <%= text_area_tag :content %> <br>
-   <%= submit_tag "Submit"%>
-<% end %>
-<hr>
+<h1 id="feed-title">Buzz Feed</h1>
+
+
+    <%= form_tag ({controller: 'posts',
+        action: 'create',
+        method: 'post'}), :id => "create-buzz" do %>
+    <p id="buzz-prompt">Stir the honey pot...</p>
+    <%= text_area_tag :content %> 
+    <%= submit_tag "Buzz it up", :id => "submit"%>
+    <% end %>
+    <hr>
+
+
 <% @posts.feed_order.each do |post|%>
     <div class="post-container">
-    <p><%=post.content%></p>
-    by <%= link_to post.user.user_name, user_path(post.user_id), class: "user-link" %>
-    <%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %B %d, %Y, %l:%M %p") %>
-    
+    <section><%= link_to post.user.user_name, user_path(post.user_id), class: "user-link" %> </section>
 
-    <%= form_tag ({controller: 'likes',
-        action: 'toggle_like',
-        method: 'post'}) do %>
-        <input type=hidden name=post_id value="<%= post.id %>">
-        <input type=hidden name=user_id value="<%= post.user_id %>">
-        <input type=submit value='🐝'>
-    <% end %>
+    <p class="post-content"><%=post.content%></p>
 
+    <div class="timelikescontainer">
+        <section><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %B %d, %Y, %l:%M %p") %> </section>
+        <div class="likes-wrapper">
+            <section>
+            <%= form_tag ({controller: 'likes',
+                action: 'toggle_like',
+                method: 'post'}) do %>
+                <input type=hidden name=post_id value="<%= post.id %>">
+                <input type=hidden name=user_id value="<%= post.user_id %>">
+                <input type=submit value='🐝'>
+            <% end %>
+            </section>
 
-    Buzz: <%= post.likes.count%>
+            <section class="likes-counter">
+            <%= post.likes.count%>
+            </section>
+        </div>
+    </div>
     <hr>
     </div>
 <%end%>
