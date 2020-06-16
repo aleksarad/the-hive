@@ -13,3 +13,140 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+ /*NAV*/
+/* .navbar-logo {
+    width: 90px;
+} */
+
+nav {
+    background-color: #191919;
+}
+
+#logo {
+    width: 130px;
+}
+
+.navbar a {
+    color: #eeeeee;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.navbar a:hover {
+    text-decoration: none;
+    color: #fddd6c;
+}
+
+/*BODY*/
+body {
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("hex2.png");
+    background-attachment: fixed;
+    background-size: 400px;
+}
+
+/* look into keeping main width consistent and margins shrink*/
+main {
+    max-width: 750px;
+    height: 100%;
+    margin: 70px auto 0 auto;
+    background-color:#eeeeee;
+    padding: 25px 50px;
+}
+
+/*FOOTER*/
+
+footer {
+    width: 100%;
+    height: 40px;
+    background-color: #191919;;
+    text-align: center;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+/*Create Buzz*/
+#create-buzz {
+    display:flex;
+    flex-direction: column;
+    font-weight: 400;
+}
+
+#create-buzz #submit {
+    margin: 15px 0 15px 0;
+    align-self: flex-end;
+    background-color: #fddd6c;
+    border: none;
+    height: 40px;
+    padding: 0 40px;
+    border-radius: 5px;
+}
+
+#create-buzz #submit:hover {
+    background-color: #ffeba1;
+}
+
+
+#create-buzz #content {
+    height: 100px;
+}
+
+hr {
+    background-color: white;
+    height: 5px;
+}
+
+/* Feed */
+
+/* Posts */
+.post-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 10px 0;
+    padding: 15px 15px;
+}
+
+.post-content {
+    align-self: center;
+    padding: 25px 0;
+}
+
+.time-likes-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bee-button-likes form {
+    border: none;
+    display: inline;
+}
+
+.user-name a {
+    color: black;
+    font-weight: 600;
+}
+
+.time-posted {
+    font-size: 0.75rem;
+    align-self: flex-end;
+}
+
+
+/*PROFILE*/
+
+.edit-delete-container {
+    text-align: right;
+}
+
+.edit-delete-container a {
+    text-decoration: none;
+    color: black; 
+    font-size: .8rem;
+}

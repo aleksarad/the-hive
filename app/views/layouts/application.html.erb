@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mod2Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Hive</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+  <nav class="navbar navbar-expand-md navbar-fixed-top main-nav fixed-top">
+      <div class="container">
+          <ul class="nav">
+              <li class="nav-item">
+                  <a class="" href="/posts">BUZZ FEED</a>
+              </li>
+          </ul>
+          <ul class="nav mx-auto">
+              <li class="nav-item"><img id="logo" src="https://i.ibb.co/5XHq3rG/thehive-logo.png" alt="thehive-logo" border="0" /></li>
+          </ul>
+          <ul class="nav">
+              <li class="nav-item">
+              <a class="" href="/users/<%=current_user.id%>%">PROFILE</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+
+    <main class="main-element">
+      <%= yield %>
+    </main>
+    <footer>
+      <p>Made by Hannah and Aleksa :)</p>
+    </footer>
   </body>
+
 </html>
