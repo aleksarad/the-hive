@@ -14,7 +14,6 @@
     <% end %>
     <hr>
 
-
 <% @posts.feed_order.each do |post|%>
     <div class="post-container">
     <section class="user-name"><%= link_to "@#{post.user.user_name}", user_path(post.user_id), class: "user-link" %> </section>

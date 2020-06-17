@@ -315,10 +315,8 @@ hr {
 } 
 
 .bee-emoji:hover {
-    /*shadow*/
-    background-color: red;
-    color: red;
-    border: red;
+    border-radius: 3px;
+    text-shadow: 0px 0px 10px #CAB156;
 }
 
 
