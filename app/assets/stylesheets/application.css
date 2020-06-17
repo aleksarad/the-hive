@@ -50,7 +50,6 @@ body {
     height: 100%;
 }
 
-/* look into keeping main width consistent and margins shrink*/
 main {
     max-width: 750px;
     height: 100%;
@@ -270,3 +269,11 @@ hr {
 }
 
 /*GET RID OF BORDER ON BEE EMOJI*/
+
+/*VIEW LIKES*/
+
+#likes-page-title {
+    display:flex;
+    flex-direction: column;
+    font-weight: 400;
+}

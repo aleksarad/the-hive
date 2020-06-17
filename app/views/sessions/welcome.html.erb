@@ -1,9 +1,7 @@
-<h1>Welcome</h1>
-<% if logged_in? %>
-    <h1>You are Logged In, <%= current_user.user_name %></h1>
-    <%= button_to "Buzz Feed", '/posts', method: :get%>
-    <%= button_to "Profile", user_path(current_user), method: :get%>
-<% else %>
-    <%= button_to "Login", '/login', method: :get%>
-    <%= button_to "Sign Up", '/users/new', method: :get%>
-<%end%>
+<%= image_tag "header.png", id: "welcome-header-image", class: "welcome-header" %>
+<h1 id="welcome-title">Welcome</h1>
+
+<div class="button-container">
+    <section class="login-button"><%= button_to "Login", '/login', method: :get%></section>
+    <section class="signup-button"><%= button_to "Sign Up", '/users/new', method: :get%></section>
+</div>

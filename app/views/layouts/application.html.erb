@@ -8,6 +8,7 @@
     <%= csp_meta_tag %>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'welcome' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -25,7 +26,7 @@
           </ul>
           <ul class="nav">
               <li class="nav-item">
-              <a class="" href="/users/<%=current_user.id%>%">PROFILE</a>
+                <a class="" href="/users/<%=current_user.id%>%">PROFILE</a>
               </li>
           </ul>
       </div>
