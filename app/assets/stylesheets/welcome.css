@@ -20,17 +20,36 @@
 
 /*FOOTER*/
 
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
 footer {
     width: 100%;
-    height: 40px;
-    background-color: #191919;;
+    height: 30px;
+    padding-top: 5px;
+    font-size: .9rem;
+    background-color: #191919;
     text-align: center;
-    color: white;
+    color: #eeeeee;
     position: fixed;
     left: 0;
     bottom: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
+footer a {
+    color: #fddd6c;
+    text-decoration: none;
+}
+
+
+footer a:hover {
+    color: #fddd6c;
+    color: #ffeba1;
+    text-decoration: underline;
+}
 
 /*BODY*/
 
@@ -43,8 +62,7 @@ body {
 .welcome-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .button-container {

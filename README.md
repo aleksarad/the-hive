@@ -1,5 +1,7 @@
 # the Hive #
 
+by [Hannah](https://github.com/hkofkin) and [Aleksa](https://github.com/aleksarad)
+
 ## Overview ##
 
 ![app home](app/assets/images/thehive_logo.jpeg)

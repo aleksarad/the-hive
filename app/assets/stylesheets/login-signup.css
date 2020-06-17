@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.login-container {
+    max-width: 450px;
+    margin-top: 130px;
+    padding: 10px;
+}
+
+.login-container label {
+    padding: 0;
+    margin: 0;
+}
+
+.login-container h1{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+}
+
+.form-container .field input{
+    width: 300px;
+    margin: 0 0 15px 0;
+    height: 38px;
+}
+
+.form-container .submit {
+    text-align: center;
+}
+
+.form-container .submit input{
+    margin: 15px 0 15px 0;
+    background-color: #fddd6c;
+    border: none;
+    height: 40px;
+    padding: 3px 55px;
+    border-radius: 5px;
+}
+
+.form-container .submit input:hover {
+    background-color: #ffeba1;
+}
+
+
+/*ERROR*/
+
+.error-message {
+    text-align: center;
+}

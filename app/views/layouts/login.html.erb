@@ -6,22 +6,24 @@
         <title>The Hive</title>
         <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
-        <%= stylesheet_link_tag 'login' %>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <%= stylesheet_link_tag 'login-signup' %>
+        <%= stylesheet_link_tag 'application' %>
     </head>
 
     <body>
-        <main>
-        <h1>Login</h1>
-            <%= form_tag '/login' do %>
-            <%= label_tag :user_name%>
-            <%= text_field_tag :user_name %>
-            <%= label_tag :password%>
-            <%= password_field_tag :password%>
-            <%= submit_tag "Login"%>
-        <%end%>
+      <nav class="navbar navbar-expand-md navbar-fixed-top main-nav fixed-top">
+      <div class="container">
+          <ul class="nav mx-auto">
+              <li class="nav-item"><img id="logo" src="https://i.ibb.co/5XHq3rG/thehive-logo.png" alt="thehive-logo" border="0" /></li>
+          </ul>
+      </div>
+    </nav>
+        <main class="login-container">
+        <%= yield %>
         </main>
         <footer>
-            <p>Made by Hannah and Aleksa :)</p>
+            <p>Made by <a href="https://github.com/hkofkin" target="_blank">Hannah</a> and <a href="https://github.com/aleksarad" target="_blank"> Aleksa </a> 💛</p>
         </footer>
     </body>
 </html>

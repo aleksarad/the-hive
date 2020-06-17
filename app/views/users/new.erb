@@ -1,21 +1,23 @@
-<h1>Sign Up</h1>
+<h1>Join the Hive</h1>
 
 <% if flash[:errors] %>
 <% flash[:errors].each do |error|%>
-        <p><%= error %> </p>
+        <section class="error-message"><%= error %> </section>
     <% end %>
 <% end %>
 
-<%= form_for @user do |f|%>
-    <%= f.label 'Name:'%>
-    <%= f.text_field :name %> <br>
-    <%= f.label 'Username:'%>
-    <%= f.text_field :user_name %> <br>
-    <%= f.label 'Password:'%>
-    <%= f.password_field :password %> <br>
-    <%= f.label 'Location:'%>
-    <%= f.text_field :location %><br>
-    <%= f.label 'Bio:'%>
-    <%= f.text_field :bio %><br>
-    <%= f.submit 'Create Account' %>
-<% end %>
+<div class="form-container">
+    <%= form_for @user do |f|%>
+        <section class="label"> <%= f.label 'Name'%> </section>
+        <section class="field"> <%= f.text_field :name %> </section>
+        <section class="label"> <%= f.label 'Username'%> </section>
+        <section class="field"> <%= f.text_field :user_name %> </section>
+        <section class="label"> <%= f.label 'Password'%> </section>
+        <section class="field"> <%= f.password_field :password %> </section>
+        <section class="label"> <%= f.label 'Location'%> </section>
+        <section class="field"> <%= f.text_field :location %> </section>
+        <section class="label"> <%= f.label 'Bio'%> </section>
+        <section class="field"> <%= f.text_field :bio %> </section>
+        <section class="submit"> <%= f.submit 'Create Account' %> </section>
+    <% end %>
+</div>
