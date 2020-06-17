@@ -269,6 +269,18 @@ hr {
 }
 
 /*GET RID OF BORDER ON BEE EMOJI*/
+ .bee-emoji {
+    border: 0;
+    background-color: white;
+} 
+
+.bee-emoji:hover {
+    /*shadow*/
+    background-color: red;
+    color: red;
+    border: red;
+}
+
 
 /*VIEW LIKES*/
 

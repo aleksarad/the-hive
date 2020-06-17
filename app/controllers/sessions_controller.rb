@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 
 
     def new
+        render :login, layout: 'login'
     end
 
     def create
@@ -19,7 +20,6 @@ class SessionsController < ApplicationController
     end
 
     def login
-        render :login, layout: 'welcome'
     end
 
     def welcome
