@@ -1,26 +1,30 @@
-# README
+# the Hive #
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview ##
 
-Things you may want to cover:
+![app home](app/assets/images/thehive_logo.jpeg)
 
-* Ruby version
+This social media app allows a user to:
+* Sign up and create an account
+* Send a 'buzz' or short message
+* View their feed and see buzzes from other users
+* Like a buzz and view their liked buzzes
+* View other user's profiles and their liked buzzes
+* Delete a buzz
+* Edit a buzz
+* Edit profile
+* Login and out
 
-* System dependencies
 
-* Configuration
+## Built With ##
+Ruby on Rails, ActiveRecord, Bootstrap, CSS
 
-* Database creation
+## Features ##
+* Full CRUD functionality
+* An easy to navigate layout and unique branded design.
 
-* Database initialization
+## Try it yourself ##
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-Testing 
+## Resources used ##
+* [Axure](https://www.axure.com/) - Creating mockups/prototypes for site layout and design
