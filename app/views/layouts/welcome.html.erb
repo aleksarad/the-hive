@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>The Hive</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag 'welcome' %>
+    </head>
+
+    <body>
+        <nav class="welcome-nav navbar-expand-md navbar-fixed-top main-nav fixed-top"></nav>
+        <%= image_tag "header2.png", id: "welcome-header-image", class: "welcome-header" %>
+        <h1 class="welcome-title">Welcome to the Hive, where you can bee yourself!</h1>
+
+        <div class="button-container">
+            <section class="login-box">
+                <p id="login-prompt">Existing User?</p>
+                <%= link_to "Login", '/login', method: :get, :id => "submit"%>
+            </section>
+            <section class="signup-box">
+                <p id="signup-prompt">New User?</p>
+                <%= link_to "Sign Up", '/users/new', method: :get, :id => "submit"%>
+            </section>
+        </div>
+        <footer>
+            <p>Made by Hannah and Aleksa :)</p>
+        </footer>
+    </body>
+</html>
+

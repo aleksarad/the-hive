@@ -150,3 +150,11 @@ hr {
     color: black; 
     font-size: .8rem;
 }
+
+/*VIEW LIKES*/
+
+#likes-page-title {
+    display:flex;
+    flex-direction: column;
+    font-weight: 400;
+}

@@ -1,8 +1,15 @@
-<h1><%= @user.name %>'s Likes</h1>
+<h1 id="likes-page-title"><%= @user.name %>'s Likes</h1>
 
-<% @user.likes.each do |like| %>
-    <%= like.post.content %><br>
-    <%= link_to like.post.user.user_name, user_path(like.post.user) %>
-    <hr>
+<% if @user.likes.count > 0 %>
+    <% @user.likes.feed_order.each do |like| %>
+        <div class="post-container">
+            <section class="user-name"><%= link_to "@#{like.post.user.user_name}", user_path(like.post.user) %></section>
+            <section class="post-content"><%= like.post.content %></section>
+            <div class="time-likes-container">
+                <section class="time-posted"><%= like.post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %B %d, %Y, %l:%M %p") %> </section>
+            </div>
+        </div>
+    <% end %>
+<% else%>
+    <p><%= @user.name %> does not have any likes!</p>
 <% end %>
-<%= link_to 'Back to Profile', user_path(@user) %>

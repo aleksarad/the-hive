@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
     end
 
     def welcome
+        render :welcome, layout: 'welcome'
     end
 
     def destroy
