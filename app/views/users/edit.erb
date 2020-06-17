@@ -1,13 +1,13 @@
-<h1> Edit User</h1>
+<h1> Edit Profile</h1>
 
 <%= form_for @user do |f|%>
-    <%= f.label 'Name'%>
-    <%= f.text_field :name %> <br>
-    <%= f.label 'Username'%>
-    <%= f.text_field :user_name %> <br>
-    <%= f.label 'Password'%>
-    <%= f.password_field :password_digest %> <br>
-    <%= f.label 'Location'%>
-    <%= f.text_field :location %><br>
-    <%= f.submit 'Update Account' %>
+    <section class="left"> <%= f.label 'Name'%> </section>
+   <section class="right"> <%= f.text_field :name %> </section>
+    <section class="left"> <%= f.label 'Username'%> </section>
+   <section class="right">  <%= f.text_field :user_name %> </section>
+   <section class="left">  <%= f.label 'Password'%> </section>
+   <section class="right">  <%= f.password_field :password_digest %> </section>
+   <section class="left">  <%= f.label 'Location'%> </section>
+    <section class="right"> <%= f.text_field :location %></section>
+    <%= f.submit 'Update Account', id: "submit" %>
 <% end %>

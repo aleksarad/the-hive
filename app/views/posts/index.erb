@@ -13,29 +13,23 @@
 
 <% @posts.feed_order.each do |post|%>
     <div class="post-container">
-    <section><%= link_to post.user.user_name, user_path(post.user_id), class: "user-link" %> </section>
+    <section class="user-name"><%= link_to "@#{post.user.user_name}", user_path(post.user_id), class: "user-link" %> </section>
 
-    <p class="post-content"><%=post.content%></p>
+    <section class="post-content"><%=post.content%></section>
 
-    <div class="timelikescontainer">
-        <section><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %B %d, %Y, %l:%M %p") %> </section>
-        <div class="likes-wrapper">
-            <section>
+    <div class="time-likes-container">
+        <section class="time-posted"><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %B %d, %Y, %l:%M %p") %> </section>
+        <section class="bee-button-likes">
+            <%= post.likes.count%>
             <%= form_tag ({controller: 'likes',
                 action: 'toggle_like',
                 method: 'post'}) do %>
-                <input type=hidden name=post_id value="<%= post.id %>">
-                <input type=hidden name=user_id value="<%= post.user_id %>">
-                <input type=submit value='🐝'>
+                    <input type=hidden name=post_id value="<%= post.id %>">
+                    <input type=hidden name=user_id value="<%= post.user_id %>">
+                    <input type=submit class="bee-emoji" value='🐝'>
             <% end %>
-            </section>
 
-            <section class="likes-counter">
-            <%= post.likes.count%>
-            </section>
-        </div>
+        </section>
     </div>
-    <hr>
     </div>
 <%end%>
-<%= link_to 'My Profile', user_path(current_user) %>

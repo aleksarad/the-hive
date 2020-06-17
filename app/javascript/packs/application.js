@@ -15,3 +15,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+// $(".bee-emoji").click(function(){
+//     $(".bee-emoji").toggleClass(".bee-liked"); 
+//  })

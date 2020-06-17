@@ -1,15 +1,27 @@
-<h1><%= @user.name %>'s Profile</h1>
-<%= link_to 'Feed', posts_path %> <br>
+<div id="name-logout-container">
+    <h1><%= @user.name %>'s Profile</h1>
+    <% if @user.id == current_user.id %>
+        <%= button_to "Logout", '/logout', method: :post %>
+    <% end%>
+</div>
+
+<div class="row-container">
+    <section class="left-column"> USERNAME </section>
+    <section class="right-column"> <%= @user.user_name.upcase %> </section>
+    <section class="left-column"> LOCATION</section>
+    <section class="right-column"> <%= @user.location.upcase %> </section>
+    <section class="left-column"> BIO </section>
+    <section class="right-column"> <%= @user.bio.upcase %> </section>
+</div>
+
 
 <% if @user.id == current_user.id %>
-    <%= link_to 'Edit User', edit_user_path %> <br>
+    <div id="edit-user"><%= link_to '<button type="button">Edit Profile</button>'.html_safe, edit_user_path %></div>
 <% end %>
-<%= link_to 'View Likes', user_likes_path(@user) %><br>
-<%= button_to "Logout", '/logout', method: :post %>
+
+<hr>
 
 <% if @user == current_user %>
-<p><%= @user.user_name %></p>
-<hr>
 
     <%= form_tag ({controller: 'posts',
         action: 'create',
@@ -19,26 +31,37 @@
     <%= submit_tag "Buzz it up", :id => "submit"%>
     <% end %>
     <hr>
-
 <%end %>
+
+<div id="profile-feed-container">
+    <h2> <%= @user.name%>'s Buzz </h2>
+    <%= link_to '<button type="button">View Likes</button>'.html_safe, user_likes_path(@user) %>
+</div>
 <% @user.posts.feed_order.each do |post| %>
-    <p><%= post.content %></p>
-    <p><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %B %d, %Y, %l:%M %p") %> 
+    <div class="post-container">
+        <section class="edit-delete-container">
+            <% if @user.id == current_user.id %>
+            <%= link_to 'Edit Post', edit_post_path(post) %> |
+            <%= link_to 'Delete Post', post_path(post), method: :delete %>
+            <% end %>
+        </section>
 
-    <%= form_tag ({controller: 'likes',
-        action: 'toggle_like',
-        method: 'post'}) do %>
-        <input type=hidden name=post_id value="<%= post.id %>">
-        <input type=hidden name=user_id value="<%= post.user_id %>">
-        <input type=submit value='🐝'>
-    <% end %>
+        <section class="post-content">
+            <%= post.content %>
+        </section>
 
-    Likes: <%= post.likes.count%>
-    <br>
-
-    <% if @user.id == current_user.id %>
-       <%= link_to 'Edit Post', edit_post_path(post) %>
-       <%= button_to 'Delete post', post_path(post), method: :delete %>
-    <% end %>
-<hr>
+        <div class="time-likes-container">
+            <section class="time-posted"><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%A, %B %d, %Y, %l:%M %p") %> </section>
+            <section class="bee-button-likes">
+                <%= post.likes.count%>
+                <%= form_tag ({controller: 'likes',
+                    action: 'toggle_like',
+                    method: 'post'}) do %>
+                    <input type=hidden name=post_id value="<%= post.id %>">
+                    <input type=hidden name=user_id value="<%= post.user_id %>">
+                    <input type=submit class="bee-emoji" value='🐝'>
+                <% end %>
+            </section>
+        </div>
+</div>
 <% end %>

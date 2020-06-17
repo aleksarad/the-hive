@@ -1,7 +1,8 @@
-<h1>Edit Post</h1>
-
+<h1>Edit Buzz</h1>
+<section id="post-container">
 <%= form_for @post do |f| %>
-    <%= f.label 'Write your text here' %><br>
-    <%= f.text_field :content %><br>
-    <%= f.submit %>
+    <%= f.label "Change your buzz" %>...<br>
+    <%= f.text_area :content, id: "content" %><br>
+    <%= f.submit id: "submit" %>
 <% end %>
+</section>
