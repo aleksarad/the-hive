@@ -1,21 +1,6 @@
-<div class="feed-header-container">
-    <h1 id="feed-title">Buzz Feed</h1>
-    <%= link_to '<button type="button">What\'s Buzzworthy</button>'.html_safe, buzzworthy_path %>
-</div>
+<h1>What's Buzzworthy</h1>
 
-    
-
-    <%= form_tag ({controller: 'posts',
-        action: 'create',
-        method: 'post'}), :id => "create-buzz" do %>
-    <p id="buzz-prompt">Stir the honey pot...</p>
-    <%= text_area_tag :content %> 
-    <%= submit_tag "Buzz it up", :id => "submit"%>
-    <% end %>
-    <hr>
-
-
-<% @posts.feed_order.each do |post|%>
+<% @posts.like_order.each do |post|%>
     <div class="post-container">
     <section class="user-name"><%= link_to "@#{post.user.user_name}", user_path(post.user_id), class: "user-link" %> </section>
 

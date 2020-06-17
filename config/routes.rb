@@ -3,6 +3,8 @@ Rails.application.routes.draw do
       get 'likes', to: 'users#likes'
     end
     resources :posts
+    get 'buzzworthy', to: 'posts#buzzworthy'
+    post 'buzzworthy', to: 'posts#buzzworthy'
     get 'sessions/new'
     get 'sessions/create'
     get 'sessions/login'

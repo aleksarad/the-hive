@@ -104,6 +104,26 @@ hr {
 
 /* Feed */
 
+/* Title */
+
+.feed-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.feed-header-container a button {
+    background-color: #fddd6c;
+    border: none;
+    height: 40px;
+    padding: 0 40px;
+    border-radius: 5px;
+}
+
+.feed-header-container a button:hover {
+    background-color: #ffeba1;
+}
+
 /* Posts */
 .post-container {
     display: flex;

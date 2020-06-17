@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     #     @post = Post.new
     # end
 
+    def buzzworthy
+        @posts = Post.all
+    end
+
     def create
         @post = Post.create(content: params[:content], user_id: current_user.id)
         redirect_back fallback_location: posts_path
