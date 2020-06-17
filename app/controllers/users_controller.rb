@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new
+        render :new, layout: 'login'
     end 
 
     def create 
