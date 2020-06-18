@@ -1,0 +1,9 @@
+<h1 id="follower-page-title">Who <%= @user.name %> is Following</h1>
+
+<% if @user.followees.count > 0 %>
+    <% @user.followees.each do |followee| %>
+            <section class="user-name"><%= link_to "@#{followee.user_name}", user_path(followee) %></section>
+    <% end %>
+<% else%>
+    <p><%= @user.name %> is not following anyone!</p>
+<% end %>

@@ -5,10 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
-Post.destroy_all
-Like.destroy_all
-
 User.create(user_name: "frecklz45", password: "bashir", name:"Hannah", location: "Chicago, IL", bio: "hello world")
 User.create(user_name: "catgirl108", password: "bashir", name:"Aleksa", location: "Brooklyn, NY", bio: "bloop")
 User.create(user_name: "michlovesmemes", password: "bashir", name:"Michelle", location: "Brooklyn, NY", bio: "i'm michelle and i love memes")
@@ -64,3 +60,4 @@ Like.create(user_id: 1, post_id: 5)
 Like.create(user_id: 6, post_id: 5)
 
 
+p "Seeding complete"

@@ -1,0 +1,9 @@
+<h1 id="follower-page-title"><%= @user.name %>'s Followers</h1>
+
+<% if @user.followers.count > 0 %>
+    <% @user.followers.each do |follower| %>
+            <section class="user-name"><%= link_to "@#{follower.user_name}", user_path(follower) %></section>
+    <% end %>
+<% else%>
+    <p><%= @user.name %> does not have any followers!</p>
+<% end %>

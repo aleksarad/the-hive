@@ -10,6 +10,14 @@ class UsersController < ApplicationController
         render :new, layout: 'login'
     end 
 
+    def followers
+        @user = User.find(params[:user_id])
+    end 
+    
+    def followees
+        @user = User.find(params[:user_id])
+    end 
+
     def create 
         @user = User.create(user_params(:user_name, :name, :password, :location, :bio))
         if @user.valid?
@@ -38,6 +46,18 @@ class UsersController < ApplicationController
 
     def likes
         @user = User.find(params[:user_id])
+    end
+
+    def follow
+        @user = User.find(params[:id])
+        current_user.followees << @user
+        redirect_to user_path(@user)
+    end
+
+    def unfollow
+        @user = User.find(params[:id])
+        current_user.followed_users.find_by(followee_id: @user.id).destroy
+        redirect_to user_path(@user)
     end
 
     #should we let users delete their accounts?
