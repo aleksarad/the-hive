@@ -1,5 +1,4 @@
 <%= form_for @like do |f| %>
     <%= f.collection_select :post_id, @posts, :id, :content %>
-    <%= f.collection_select :user_id, @users, :id, :user_name %>
     <%= f.submit %>
 <% end %>

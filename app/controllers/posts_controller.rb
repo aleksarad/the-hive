@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
     def index
-        @posts = Post.all
+        @posts = []
+        current_user.followees.each do |followee| 
+            followee.posts.each do |post|
+              @posts << post  
+            end
+        end
+        @posts.sort_by { |post| post[:created_at] }
     end
-
-    # def new
-    #     @post = Post.new
-    # end
 
     def buzzworthy
         @posts = Post.all
