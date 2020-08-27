@@ -1,5 +1,9 @@
 <div id="name-logout-container">
-    <h1><%= @user.name %>'s Profile</h1>
+    <section id="following-name-container">
+        <h1><%= @user.name %>'s Profile</h1>
+        <%= link_to "#{@user.followers.count} Followers", user_followers_path(@user) %>
+        <%= link_to "#{@user.followees.count} Following", user_followees_path(@user) %>
+    </section>
     <section id="all-links">
         <% if @user.id == current_user.id %>
             <%= button_to "Logout", '/logout', method: :post %>
@@ -10,9 +14,6 @@
                 <h5><%= button_to "Follow", follow_user_path, method: "POST"  %></h5>
             <% end %>
         <% end%>
-        <%= link_to 'Followers', user_followers_path(@user) %>
-        <%= link_to 'Following', user_followees_path(@user) %>
-        <br>
     </section>
 </div>
 
@@ -70,7 +71,6 @@
                     action: 'toggle_like',
                     method: 'post'}) do %>
                     <input type=hidden name=post_id value="<%= post.id %>">
-                    <input type=hidden name=user_id value="<%= post.user_id %>">
                     <input type=submit class="bee-emoji" value='🐝'>
                 <% end %>
             </section>

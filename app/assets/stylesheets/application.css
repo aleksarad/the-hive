@@ -215,8 +215,16 @@ hr {
     justify-content: space-between;
 }
 
+#following-name-container {
+    margin-bottom: 10px;
+}
+
+#following-name-container a{
+    color: black;
+}
+
 #name-logout-container h1 {
-    padding: 5px 0 20px 0;
+    margin-bottom: 15px;
 }
 
 #name-logout-container form input {

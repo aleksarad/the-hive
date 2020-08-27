@@ -1,12 +1,18 @@
 class PostsController < ApplicationController
     def index
-        @posts = []
+        followee_posts = []
         current_user.followees.each do |followee| 
             followee.posts.each do |post|
-              @posts << post  
+              followee_posts << post  
             end
         end
-        @posts.sort_by { |post| post[:created_at] }
+
+        # this is solely if we want the current users posts to also be in their feed
+        current_user.posts.each do |post|
+            followee_posts << post 
+        end
+
+        @posts = followee_posts.sort_by { |post| post[:created_at] }.reverse
     end
 
     def buzzworthy
